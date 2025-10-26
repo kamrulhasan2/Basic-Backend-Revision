@@ -67,6 +67,24 @@ class MyDB {
     }
 
 
+    //find winners
+    draw(winnerCount){
+        const winnerIndices = new Array(winnerCount);
+
+        let index = 0;
+        while(index < winnerCount){
+            let winnerIndex = Math.floor(Math.random() * this.tickets.length);
+            if(!winnerIndices.includes(winnerIndex)){
+                winnerIndices[index++] = winnerIndex;
+                continue;
+            }
+        }
+
+        const winners = winnerIndices.map((index)=> this.tickets[index]);
+        return winners;
+    }
+
+
 
 }
 
