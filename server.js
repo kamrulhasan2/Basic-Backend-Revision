@@ -2,20 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.get('/',(req,res)=>{
-    res.send('Welcome to the express server');
+app.get('/health',(_req,res)=>{
+    res.json({message: 'Success'});
 });
 
-app.get('/profile',(req,res)=>{
-    const obj = {
-        name: 'kamrul hasan',
-        email: 'kamrul@email.com',
-        phone: '01799999999999',
-        adderss: 'Dhaka, Bangladesh'
-    }
-
-    res.json(obj);
-})
 
 
 app.listen(4000,()=>{
