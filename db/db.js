@@ -42,6 +42,16 @@ class MyDB {
         return tickets;
     }
 
+    //update ticket by id
+    updateById (ticketId,ticketBody){
+        const ticket = this.findById(ticketId);
+        ticket.username = ticketBody.username ?? ticket.username;
+        ticket.price = ticketBody.price ?? ticket.price;
+        ticket.updatedAt = new Date();
+
+        return ticket;
+    }
+
 
 
 
