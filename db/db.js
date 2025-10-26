@@ -22,6 +22,29 @@ class MyDB {
         }
         return result;
     }
+
+    //returns all available tickets
+    find(){
+        return this.tickets;
+    }
+
+    //find ticket by ticket id
+    findById(ticketId){
+        const ticket = this.tickets.find((ticket)=> ticket.id === ticketId);
+
+        return ticket;
+    }
+
+    //find all tickets for a given user
+    findByUser(username){
+        const tickets = this.tickets.filter((ticket)=> ticket.username === username );
+
+        return tickets;
+    }
+
+
+
+
 }
 
 const  myDB = new MyDB();
