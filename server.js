@@ -1,11 +1,11 @@
-const express = require('express');
-const app = express();
+require('dotenv').config();
+const http = require('http');
+const app = require('./app/app');
 
-app.use(require('./app/routes'));
+const server = http.createServer(app);
 
+const PORT = process.env.PORT || 8000;
 
-
-
-app.listen(4000,()=>{
-    console.log('I am listening on port no 4000');
+server.listen(PORT, () => {
+	console.log(`Server is listening on PORT ${PORT}`);
 });
